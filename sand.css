@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.pagewrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.left{
+    width: 75vw;
+    padding: 1em;
+}
+
+.right {
+    width: 25vw;
+    background-color: lightgray;
+    padding: 1em;
+}
+
+.number1 {
+    background-image: url(images/hs-field-trip-cert.jpg);
+}
+
+.number2 {
+    background-image: url(images/weight-cert.jpg);
+}
+
+.number3 {
+    background-image: url(images/injury-cert.jpg);
+}
