@@ -58,3 +58,7 @@ p {
 .number3 {
     background-image: url(images/injury-cert.jpg);
 }
+
+@media print {
+    #myForm{display: none;}
+}

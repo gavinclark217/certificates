@@ -11,34 +11,40 @@ document.addEventListener("DOMContentLoaded", function () {
     // tbd
     document.getElementById('name').addEventListener('change', function (eventData) {
         let nameOutput = document.getElementById('nameOutput');
-        // console.log(eventData.target.value);
+        // console.log(eventData);
         nameOutput.innerText = eventData.target.value;
     });
 
-    let selectedOptionText = "";
-
     document.getElementById('type').addEventListener('change', function (eventData) {
-        selectedOptionText = eventData.target.options[eventData.target.selectedIndex].text;
+        let nameOutput = document.getElementById('nameOutput');
+        // console.log(eventData);
+        // let info = document.getElementById('info');
+        // info.innerText = eventData.target.value;
         changeCert(eventData.target.value);
     });
 
+    // process form Data
     document.getElementById("myForm").addEventListener("submit", function (eventData) {
         eventData.preventDefault(); //stop page reload when form is submitted
         console.log(eventData.target);
         var formData = new FormData(eventData.target);
         formData = Object.fromEntries(formData);
+
+        //update certificate information when form is submitted:
         let nameOutput = document.getElementById('nameOutput');
+        // let info = document.getElementById('info');
         nameOutput.innerText = formData.name;
-        let info = document.getElementById('type');
-        let selectedOptionIndex = info.selectedIndex;
-        info.options[selectedOptionIndex].text = selectedOptionText;
-        changeCert(info.value);
+        // info.innerText = formData.type;
+        changeCert(formData.type);
+
     });
     // Log readiness to console
     console.log("Ready");
 
     // let info = document.getElementById('info');
     // info.classList.add('test');
+
+
 
     // certificate.classList.add('number1');
 
@@ -55,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'C':
                 certificate.classList.add('number3');
                 break;
-            default:
-                break;
         }
     }
 
@@ -65,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (document.getElementById('print') !== null) {
         let printElement = document.getElementById('print');
-        printElement.addEventListener('click', function (e) {
+        printElement.addEventListener('click', function(e) {
             window.print();
             console.log('invoke print');
         });
@@ -79,7 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
     dateBox.innerText = theDate;
 });
 
+//generating a date
+
+
 /* Additional things to be aware of */
+
+
+
+
+
 
 function processForm(form) {
 
