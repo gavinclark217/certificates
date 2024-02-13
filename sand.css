@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&display=swap');
+
 body {
     margin: 0;
 }
@@ -11,7 +13,7 @@ body {
     height: 100vh;
 }
 
-.left{
+.left {
     width: 75vw;
     padding: 1em;
 }
@@ -20,6 +22,29 @@ body {
     width: 25vw;
     background-color: lightgray;
     padding: 1em;
+}
+
+#certificate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 776px;
+    width: 1004px;
+    background-repeat: no-repeat;
+    font-size: 70px;
+    color: #D3AD75;
+    font-family: "Gupter", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+span {
+    margin: 270px;
+}
+
+p {
+    font-size: 20px;
 }
 
 .number1 {

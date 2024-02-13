@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>How to display image when click the select option using jQuery </title>
+    <script>
+        function setCar() {
+            var img = document.getElementById("image");
+            img.src = this.value;
+            return false;
+        }
+        document.getElementById("CarList").onchange = setCar;
+    </script>
+</head>
+
+<body>
+    <img id="image" src="../images/hs-field-trip-cert.jpg" />
+    <select id="CarList">
+        <option value="Null_Image.png">No Car</option>
+        <option value="http://mebe.co/volvo">Volvo</option>
+    </select>
+</body>
+
+</html>

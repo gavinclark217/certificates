@@ -11,39 +11,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // tbd
     document.getElementById('name').addEventListener('change', function (eventData) {
         let nameOutput = document.getElementById('nameOutput');
-        // console.log(eventData);
+        // console.log(eventData.target.value);
         nameOutput.innerText = eventData.target.value;
     });
 
+    let selectedOptionText = "";
+
     document.getElementById('type').addEventListener('change', function (eventData) {
-        let nameOutput = document.getElementById('nameOutput');
-        // console.log(eventData);
-        let info = document.getElementById('info');
-        info.innerText = eventData.target.value;
+        selectedOptionText = eventData.target.options[eventData.target.selectedIndex].text;
         changeCert(eventData.target.value);
     });
 
-    // process form Data
     document.getElementById("myForm").addEventListener("submit", function (eventData) {
         eventData.preventDefault(); //stop page reload when form is submitted
         console.log(eventData.target);
         var formData = new FormData(eventData.target);
         formData = Object.fromEntries(formData);
-
-        //update certificate information when form is submitted:
         let nameOutput = document.getElementById('nameOutput');
-        let info = document.getElementById('info');
         nameOutput.innerText = formData.name;
-        info.innerText = formData.type;
-
+        let info = document.getElementById('type');
+        let selectedOptionIndex = info.selectedIndex;
+        info.options[selectedOptionIndex].text = selectedOptionText;
+        changeCert(info.value);
     });
     // Log readiness to console
     console.log("Ready");
 
     // let info = document.getElementById('info');
     // info.classList.add('test');
-
-
 
     // certificate.classList.add('number1');
 
@@ -59,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
             case 'C':
                 certificate.classList.add('number3');
+                break;
+            default:
                 break;
         }
     }
@@ -82,15 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dateBox.innerText = theDate;
 });
 
-//generating a date
-
-
 /* Additional things to be aware of */
-
-
-
-
-
 
 function processForm(form) {
 
